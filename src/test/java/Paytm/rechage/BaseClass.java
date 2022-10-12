@@ -11,39 +11,33 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
-	
 	static WebDriver driver;
-	
+
 	public static WebDriver initilationBrowser()
-	
+
 	{
-		
-		
-		
-		
+
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
-		
+
 		driver.manage().window().maximize();
 		return driver;
 	}
-	
-	public RechargeTest landingPage()
-	{
+
+	public RechargeTest landingPage() {
 		return new RechargeTest(driver);
 	}
-	public void url()
-	{
+
+	public void url() {
 		driver.get("https://paytm.com/");
 	}
-	public RentPaymentTest rentpage()
-	{
-		return new  RentPaymentTest(driver);
+
+	public RentPaymentTest rentpage() {
+		return new RentPaymentTest(driver);
 	}
-	public static void driverClose()
-	{
+
+	public static void driverClose() {
 		driver.close();
-		driver=null;
+		driver = null;
 	}
 }
